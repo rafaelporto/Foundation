@@ -1,0 +1,42 @@
+﻿@page "/configurations"
+
+<PageTitle>Configurations</PageTitle>
+
+@using Foundation.Web.Data
+@inject ConfigurationService Service
+
+<h1>List of configurations</h1>
+
+@if (configurations == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var config in configurations)
+            {
+                <tr>
+                    <td>@config.Key</td>
+                    <td>@config.Value</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private IEnumerable<KeyValuePair<string, string>> configurations;
+
+    protected override async Task OnInitializedAsync()
+    {
+        configurations = await Service.GetConfigurationsAsync();
+    }
+}
