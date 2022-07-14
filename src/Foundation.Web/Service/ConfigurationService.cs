@@ -1,4 +1,4 @@
-namespace Foundation.Web.Data;
+namespace Foundation.Web.Service;
 
 public class ConfigurationService
 {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
-using Foundation.Web.Data;
+using Foundation.Web.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
